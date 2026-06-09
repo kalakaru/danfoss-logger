@@ -13,38 +13,26 @@ message("Starte Danfoss Data Logger...")
 # ==========================================
 # 1. Konfiguration & Credentials (via GitHub Secrets)
 # ==========================================
-client_id <- Sys.getenv("DANFOSS_CLIENT_ID")
-client_secret <- Sys.getenv("DANFOSS_CLIENT_SECRET")
+client_id <- "TY1pN2vbZnAA5KUfHpu3GrKMI1IzCg5N7S3Pw6QLSwzCNLVU"
+client_secret <- "gKoVbTvy4AGb1zEctXACvcmGLybC6QX6zmZGwbLtl7j58WFwg8ZQw38Oky1ppvVb"
+# client_id <- Sys.getenv("DANFOSS_CLIENT_ID")
+# client_secret <- Sys.getenv("DANFOSS_CLIENT_SECRET")
 token_url <- "https://api.danfoss.com/oauth2/token"
 
 # ==========================================
-# 2. Access Token abrufen (Explizite Base64 Methode)
+# 2. Access Token abrufen
 # ==========================================
 message("Rufe Token ab...")
-
-# Sicherheitsmaßnahme: Versteckte Zeilenumbrüche und Leerzeichen rigoros entfernen
-client_id <- trimws(gsub("[\r\n]", "", client_id))
-client_secret <- trimws(gsub("[\r\n]", "", client_secret))
-
-# Danfoss verlangt zwingend einen Base64-codierten String aus ID und Secret
-auth_string <- paste0(client_id, ":", client_secret)
-encoded_auth <- jsonlite::base64_enc(auth_string)
-
-# Die Anfrage exakt nach Danfoss API-Dokumentation aufbauen
 token_response <- POST(
   url = token_url,
-  add_headers(
-    "Authorization" = paste("Basic", encoded_auth),
-    "Content-Type" = "application/x-www-form-urlencoded",
-    "Accept" = "application/json"
-  ),
-  body = "grant_type=client_credentials"
+  authenticate(client_id, client_secret, type = "basic"),
+  body = list(grant_type = "client_credentials"),
+  encode = "form"
 )
 
 stop_for_status(token_response, task = "Token-Abruf fehlgeschlagen")
 token_content <- content(token_response, as = "parsed", type = "application/json")
 access_token <- token_content$access_token
-message("Token erfolgreich abgerufen!")
 
 # ==========================================
 # 3. Daten von Danfoss abrufen
