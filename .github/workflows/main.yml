@@ -27,7 +27,7 @@ jobs:
           # Hier werden die Secrets sicher an das R-Skript übergeben
           DANFOSS_CLIENT_ID: ${{ secrets.DANFOSS_CLIENT_ID }}
           DANFOSS_CLIENT_SECRET: ${{ secrets.DANFOSS_CLIENT_SECRET }}
-        run: Rscript danfoss_logger.R
+        run: Rscript danfoss-logger.R
 
       - name: CSV committen und pushen
         run: |
