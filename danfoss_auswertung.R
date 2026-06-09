@@ -8,8 +8,6 @@ library(ggplot2)
 # ==========================================
 # 1. Konfiguration
 # ==========================================
-# Füge hier deinen generierten GitHub PAT ein
-# Wichtig: Dieses Skript bleibt nur lokal auf deinem PC!
 github_pat <- "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"
 
 # Die saubere Raw-URL OHNE angehängten Token!
