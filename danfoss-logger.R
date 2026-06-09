@@ -17,7 +17,6 @@ client_id <- Sys.getenv("DANFOSS_CLIENT_ID")
 client_secret <- Sys.getenv("DANFOSS_CLIENT_SECRET")
 token_url <- "https://api.danfoss.com/oauth2/token"
 
-
 # ==========================================
 # 2. Access Token abrufen
 # ==========================================
