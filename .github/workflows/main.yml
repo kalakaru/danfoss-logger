@@ -22,11 +22,10 @@ jobs:
         run: |
           Rscript -e 'install.packages(c("httr", "jsonlite", "dplyr", "tidyr", "lubridate"))'
 
-      - name: Skript ausführen und Daten holen
+- name: Skript ausführen und Daten holen
         env:
-          # Hier werden die Secrets sicher an das R-Skript übergeben
-          DANFOSS_CLIENT_ID: ${{ secrets.DANFOSS_CLIENT_ID }}
-          DANFOSS_CLIENT_SECRET: ${{ secrets.DANFOSS_CLIENT_SECRET }}
+          DANFOSS_CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          DANFOSS_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: Rscript danfoss-logger.R
 
       - name: CSV committen und pushen
