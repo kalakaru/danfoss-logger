@@ -13,10 +13,11 @@ message("Starte Danfoss Data Logger...")
 # ==========================================
 # 1. Konfiguration & Credentials (via GitHub Secrets)
 # ==========================================
-client_id <- "TY1pN2vbZnAA5KUfHpu3GrKMI1IzCg5N7S3Pw6QLSwzCNLVU"
-client_secret <- "gKoVbTvy4AGb1zEctXACvcmGLybC6QX6zmZGwbLtl7j58WFwg8ZQw38Oky1ppvVb"
-# client_id <- Sys.getenv("DANFOSS_CLIENT_ID")
-# client_secret <- Sys.getenv("DANFOSS_CLIENT_SECRET")
+# trimws() entfernt automatisch unsichtbare Leerzeichen, die beim 
+# Kopieren in die GitHub Secrets versehentlich mitgenommen wurden.
+client_id <- trimws(Sys.getenv("DANFOSS_CLIENT_ID"))
+client_secret <- trimws(Sys.getenv("DANFOSS_CLIENT_SECRET"))
+
 token_url <- "https://api.danfoss.com/oauth2/token"
 
 # ==========================================
@@ -37,7 +38,6 @@ access_token <- token_content$access_token
 # ==========================================
 # 3. Daten von Danfoss abrufen
 # ==========================================
-# (Passe diese URL an, falls du einen anderen Endpunkt nutzt)
 api_endpoint <- "https://api.danfoss.com/ally/devices"
 
 message("Rufe Sensordaten ab...")
@@ -75,7 +75,6 @@ tidy_danfoss <- raw_df %>%
 datei_pfad <- "danfoss-logger.csv"
 
 message("Speichere neue Daten in CSV...")
-# Wir gehen davon aus, dass die Datei existiert, da wir sie initial hochgeladen haben.
 # write.table mit append = TRUE fügt die neuen Zeilen ohne Spaltennamen (col.names = FALSE) unten an.
 write.table(tidy_danfoss, file = datei_pfad, sep = ",", dec = ".",
             append = TRUE, col.names = FALSE, row.names = FALSE)
