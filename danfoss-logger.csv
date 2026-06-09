@@ -1,1 +1,22 @@
 "name","update_time","code","value"
+"Kinderzimmer","temp_current",240,2026-06-09 11:34:24.599
+"Kinderzimmer","humidity_value",582,2026-06-09 11:34:24.599
+"Kinderzimmer","battery_percentage",100,2026-06-09 11:34:24.599
+"Grosses-Badezimmer","temp_current",239,2026-06-09 11:34:24.599
+"Grosses-Badezimmer","humidity_value",580,2026-06-09 11:34:24.599
+"Grosses-Badezimmer","battery_percentage",100,2026-06-09 11:34:24.599
+"Schrank","temp_current",236,2026-06-09 11:34:24.599
+"Schrank","humidity_value",611,2026-06-09 11:34:24.599
+"Schrank","battery_percentage",100,2026-06-09 11:34:24.599
+"Spielzimmer","temp_current",241,2026-06-09 11:34:24.599
+"Spielzimmer","humidity_value",575,2026-06-09 11:34:24.599
+"Spielzimmer","battery_percentage",100,2026-06-09 11:34:24.599
+"Fisch-Badezimmer","temp_current",242,2026-06-09 11:34:24.599
+"Fisch-Badezimmer","humidity_value",573,2026-06-09 11:34:24.599
+"Fisch-Badezimmer","battery_percentage",100,2026-06-09 11:34:24.599
+"Stube","temp_current",242,2026-06-09 11:34:24.599
+"Stube","humidity_value",565,2026-06-09 11:34:24.599
+"Stube","battery_percentage",100,2026-06-09 11:34:24.599
+"Eltern-Schlafzimmer","temp_current",238,2026-06-09 11:34:24.599
+"Eltern-Schlafzimmer","humidity_value",595,2026-06-09 11:34:24.599
+"Eltern-Schlafzimmer","battery_percentage",100,2026-06-09 11:34:24.599
