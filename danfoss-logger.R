@@ -13,7 +13,7 @@ message("Starte Danfoss Data Logger...")
 # ==========================================
 # 1. Konfiguration & Credentials (via GitHub Secrets)
 # ==========================================
-# trimws() entfernt automatisch unsichtbare Leerzeichen, die beim 
+# trimws() entfernt automatisch unsichtbare Leerzeichen, die beim
 # Kopieren in die GitHub Secrets versehentlich mitgenommen wurden.
 client_id <- trimws(Sys.getenv("DANFOSS_CLIENT_ID"))
 client_secret <- trimws(Sys.getenv("DANFOSS_CLIENT_SECRET"))
@@ -58,15 +58,17 @@ danfoss_data <- fromJSON(danfoss_raw_text, flatten = TRUE)
 # 4. Daten bereinigen (Tidy Format)
 # ==========================================
 message("Formatiere Daten...")
+
+server_zeit_ms <- danfoss_data$t
+server_zeit <- as.POSIXct(server_zeit_ms / 1000, origin="1970-01-01", tz="Europe/Zurich")
+
 raw_df <- danfoss_data$result
 
 tidy_danfoss <- raw_df %>%
-  select(name, update_time, status) %>%
-  # Zeitstempel in Schweizer Zeit umwandeln
-  mutate(update_time = as_datetime(update_time, tz = "Europe/Zurich")) %>%
-  # Status-Spalte entpacken
+  select(name, status) %>%
+  # Wir überschreiben/ergänzen den Zeitstempel mit der aktuellen Server-Zeit
+  mutate(update_time = server_zeit) %>%
   unnest(cols = c(status), keep_empty = TRUE) %>%
-  # Leere Sensoren herausfiltern
   filter(!is.na(code))
 
 # ==========================================
