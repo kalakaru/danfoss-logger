@@ -1,8 +1,8 @@
 # Erstellt einen leeren Datensatz mit den richtigen Spalten
 leere_daten <- data.frame(
   name = character(),
-  update_time = character(),
   code = character(),
+  update_time = character(),
   value = numeric()
 )
 

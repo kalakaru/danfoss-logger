@@ -66,10 +66,14 @@ raw_df <- danfoss_data$result
 
 tidy_danfoss <- raw_df %>%
   select(name, status) %>%
-  # Wir überschreiben/ergänzen den Zeitstempel mit der aktuellen Server-Zeit
+  # update_time: Wir überschreiben/ergänzen den Zeitstempel mit der aktuellen Server-Zeit
   mutate(update_time = server_zeit) %>%
   unnest(cols = c(status), keep_empty = TRUE) %>%
-  filter(!is.na(code))
+  # code bereinigen
+  filter(!is.na(code)) %>%
+  filter(code != "battery_percentage")
+  # Reihenfolge der Spalten definieren
+  select(name, code, update_time, value)
 
 # ==========================================
 # 5. Daten historisieren (In CSV anhängen)
