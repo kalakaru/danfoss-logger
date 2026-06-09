@@ -22,7 +22,7 @@ jobs:
         run: |
           Rscript -e 'install.packages(c("httr", "jsonlite", "dplyr", "tidyr", "lubridate"))'
 
-- name: Skript ausführen und Daten holen
+      - name: Skript ausführen und Daten holen
         env:
           DANFOSS_CLIENT_ID: ${{ secrets.CLIENT_ID }}
           DANFOSS_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
