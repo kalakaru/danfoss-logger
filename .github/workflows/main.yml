@@ -33,7 +33,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Bot"
-          git add danfoss_zeitverlauf.csv
+          git add danfoss-logger.csv
           # Der Befehl bricht nicht ab, falls sich mal nichts geändert hat
           git commit -m "Automatisches Daten-Update" || echo "Keine neuen Daten"
           git push
