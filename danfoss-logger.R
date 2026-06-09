@@ -15,8 +15,7 @@ message("Starte Danfoss Data Logger...")
 # ==========================================
 client_id <- Sys.getenv("DANFOSS_CLIENT_ID")
 client_secret <- Sys.getenv("DANFOSS_CLIENT_SECRET")
-#token_url <- "https://api.danfoss.com/oauth2/token"
-token_url <- "https://e2e.api.danfoss.com/oauth2/token"
+token_url <- "https://api.danfoss.com/oauth2/token"
 
 
 # ==========================================
@@ -38,8 +37,7 @@ access_token <- token_content$access_token
 # 3. Daten von Danfoss abrufen
 # ==========================================
 # (Passe diese URL an, falls du einen anderen Endpunkt nutzt)
-#api_endpoint <- "https://api.danfoss.com/ally/devices"
-api_endpoint <-  "https://e2e.api.danfoss.com/ally/devices"
+api_endpoint <- "https://api.danfoss.com/ally/devices"
 
 message("Rufe Sensordaten ab...")
 data_response <- GET(
