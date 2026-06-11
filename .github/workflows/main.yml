@@ -2,8 +2,10 @@ name: Danfoss Data Logger
 
 on:
   schedule:
-    # Führt das Skript alle 30 Minuten aus
-    - cron: '*/30 * * * *'
+    # Führt das Skript alle 60 Minuten aus
+    #- cron: '*/60 * * * *'
+    # Führt das Skript einmal pro Stunde aus, immer exakt zur Minute 37
+    - cron: '37 * * * *'
   workflow_dispatch: # Erlaubt dir, das Skript auch manuell per Button zu starten
 
 jobs:
