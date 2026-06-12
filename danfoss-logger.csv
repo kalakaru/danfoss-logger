@@ -741,3 +741,17 @@
 "Stube","humidity_value",2026-06-12 22:01:45.054,567
 "Eltern-Schlafzimmer","temp_current",2026-06-12 22:01:45.054,230
 "Eltern-Schlafzimmer","humidity_value",2026-06-12 22:01:45.054,593
+"Kinderzimmer","temp_current",2026-06-12 23:02:00.999,233
+"Kinderzimmer","humidity_value",2026-06-12 23:02:00.999,581
+"Schrank","temp_current",2026-06-12 23:02:00.999,226
+"Schrank","humidity_value",2026-06-12 23:02:00.999,612
+"Grosses-Badezimmer","temp_current",2026-06-12 23:02:00.999,232
+"Grosses-Badezimmer","humidity_value",2026-06-12 23:02:00.999,587
+"Spielzimmer","temp_current",2026-06-12 23:02:00.999,234
+"Spielzimmer","humidity_value",2026-06-12 23:02:00.999,571
+"Fisch-Badezimmer","temp_current",2026-06-12 23:02:00.999,233
+"Fisch-Badezimmer","humidity_value",2026-06-12 23:02:00.999,582
+"Stube","temp_current",2026-06-12 23:02:00.999,234
+"Stube","humidity_value",2026-06-12 23:02:00.999,567
+"Eltern-Schlafzimmer","temp_current",2026-06-12 23:02:00.999,230
+"Eltern-Schlafzimmer","humidity_value",2026-06-12 23:02:00.999,593
