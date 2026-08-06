@@ -5,8 +5,8 @@ danfoss_sel_def <- danfoss_df %>%
   mutate(update_time_rounded = floor_date(update_time, "hour")) %>%
   group_by(name, update_time_rounded, code) %>%
   summarise(value = mean(value, na.rm = TRUE), .groups = "drop") %>%
-  pivot_wider(names_from = code, values_from = value) %>%
-  drop_na(temp_current, humidity_value)
+  tidyr::pivot_wider(names_from = code, values_from = value) %>%
+  tidyr::drop_na(temp_current, humidity_value)
 
 # Absolute Luftfeuchtigkeit berechnen (Magnus-Formel) ----
 
@@ -37,7 +37,7 @@ df_calc <- danfoss_sel_def %>%
 
 # ggplot ----
 
-ggplot(df_total, aes(x = update_time_rounded, y = total_water_liter)) +
+ggplot(df_calc, aes(x = update_time_rounded, y = total_water_liter)) +
   geom_line(color = "#007acc", linewidth = 1) +
   # Eine weiche Trendlinie hinzufügen, um den generellen Verlauf zu sehen
   geom_smooth(method = "loess", color = "darkred", se = FALSE, linetype = "dashed", linewidth = 0.8) +

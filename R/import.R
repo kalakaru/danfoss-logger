@@ -1,7 +1,8 @@
 # ==========================================
 # 1. Konfiguration
 # ==========================================
-github_pat <- "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"
+#github_pat <- "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" - old token
+github_pat <- "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"
 
 # Die saubere Raw-URL OHNE angehängten Token!
 raw_url <- "https://raw.githubusercontent.com/kalakaru/danfoss-logger/main/danfoss-logger.csv"
