@@ -25,7 +25,7 @@ jobs:
         env:
           DANFOSS_CLIENT_ID: ${{ secrets.CLIENT_ID }}
           DANFOSS_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-        run: Rscript danfoss-logger.R
+        run: Rscript R/danfoss-logger.R
 
       - name: CSV committen und pushen
         run: |
