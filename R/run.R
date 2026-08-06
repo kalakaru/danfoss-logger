@@ -6,7 +6,8 @@ source("./R/setup.R")
 
 # auswertung -----
 source("./R/import.R")
-source("./R/danfoss_auswertung.R")
+source("./R/boxplot.R")
+#source("./R/danfoss_auswertung.R") #cleanup
 source("./R/danfoss_auswertung_liter.R")
 
 # ?
