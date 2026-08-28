@@ -78,7 +78,7 @@ tidy_danfoss <- raw_df %>%
 # ==========================================
 # 5. Daten historisieren (In CSV anhängen)
 # ==========================================
-datei_pfad <- "danfoss-logger.csv"
+datei_pfad <- "data/danfoss-logger.csv"
 
 message("Speichere neue Daten in CSV...")
 # write.table mit append = TRUE fügt die neuen Zeilen ohne Spaltennamen (col.names = FALSE) unten an.
