@@ -32,13 +32,13 @@ jobs:
         env:
           DANFOSS_CLIENT_ID: ${{ secrets.CLIENT_ID }}
           DANFOSS_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-        run: Rscript danfoss-logger.R
+        run: Rscript R/danfoss-logger.R
 
       - name: CSV committen und pushen
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Bot"
-          git add danfoss-logger.csv
+          git add data/danfoss-logger.csv
           git commit -m "Automatisches Daten-Update" || echo "Keine neuen Daten"
           git pull --rebase
           git push
