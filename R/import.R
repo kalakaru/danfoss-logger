@@ -5,8 +5,7 @@
 github_pat <- "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"
 
 # Die saubere Raw-URL OHNE angehängten Token!
-raw_url <- "https://raw.githubusercontent.com/kalakaru/danfoss-logger/main/danfoss-logger.csv"
-path_out = "~/file-server/file-server/01_Post/Kaelin/Trash/"
+raw_url <- "https://raw.githubusercontent.com/kalakaru/danfoss-logger/refs/heads/main/data/danfoss-logger.csv"
 
 # ==========================================
 # 2. Daten abrufen

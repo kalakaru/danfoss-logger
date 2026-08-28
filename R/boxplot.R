@@ -22,6 +22,7 @@ check_df <- boxplot_df %>%
     # Farbe für das ggplot-Label definieren: Rot, wenn der Durchschnitt > 60% ist
     text_color = ifelse(Q50 > 60, "red", "black")
   )
+write.table(check_df, paste0(path_out, "check_df.csv"), row.names=FALSE, sep = ",", fileEncoding ="UTF-8")
 
 # calc_stat ----
 calc_stat <- function(x) {
