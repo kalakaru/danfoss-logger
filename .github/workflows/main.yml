@@ -3,7 +3,7 @@ name: Danfoss Data Logger
 on:
   repository_dispatch:
     types: [starte_logger]
-  workflow_dispatch: # Erlaubt weiterhin den manuellen Button-Klick
+  workflow_dispatch:
 
 jobs:
   scrape-and-save:
@@ -16,22 +16,29 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: 'release'
+          use-public-rspm: true
 
-      - name: Nötige R-Pakete installieren
-        run: |
-          Rscript -e 'install.packages(c("httr", "jsonlite", "dplyr", "tidyr", "lubridate"))'
+      - name: R-Pakete rasend schnell installieren & cachen
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::httr
+            any::jsonlite
+            any::dplyr
+            any::tidyr
+            any::lubridate
 
       - name: Skript ausführen und Daten holen
         env:
           DANFOSS_CLIENT_ID: ${{ secrets.CLIENT_ID }}
           DANFOSS_CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-        run: Rscript R/danfoss-logger.R
+        run: Rscript danfoss-logger.R
 
       - name: CSV committen und pushen
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action Bot"
-          git add data/danfoss-logger.csv
+          git add danfoss-logger.csv
           git commit -m "Automatisches Daten-Update" || echo "Keine neuen Daten"
           git pull --rebase
           git push
