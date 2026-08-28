@@ -7,4 +7,4 @@ leere_daten <- data.frame(
 )
 
 # Speichert die leere Tabelle als CSV ab
-write.csv(leere_daten, "danfoss-logger.csv", row.names = FALSE)
+write.csv(leere_daten, "data/danfoss-logger.csv", row.names = FALSE)
